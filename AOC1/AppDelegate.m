@@ -23,13 +23,27 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
+    bool strike = false;
     float swing = 3.3;
     int ball = 95;
+
     float distance = (float)ball * swing;
     
     NSLog(@"The Pitcher throws the ball at %d mph.", ball);
     NSLog(@"The ball is hit and goes %.2f feet.", distance);
     
+    if((ball > 65) && (swing > 3))
+    {
+        NSLog(@"You hit the ball");
+    }
+    else if ((distance >= 150) || (strike == true))
+    {
+        NSLog(@"You're OUT!");
+    }
+    else
+    {
+        NSLog(@"The pitch was a ball.");
+    }
     
     return YES;
 }
