@@ -23,35 +23,42 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
+    //Variables
     bool strike = false;
     float swing = 3.3;
     int ball = 95;
     int innings = 1;
-
+    //Casting
     float distance = (float)ball * swing;
     
-    NSLog(@"The Pitcher throws the ball at %d mph.", ball);
-    NSLog(@"The ball is hit and goes %.2f feet.", distance);
+    NSLog(@"Its opening day at Fenway Park.");
     
-    while(innings<9)
+    //While Loop
+    while(innings<10)
     {
         NSLog(@"It is the %d inning.", innings);
         innings++;
     }
-    
+    //For Loop
     for(int out=0; out<3; out++)
     {
         NSLog(@"There is %d outs.", out);
     }
     
+    NSLog(@"You step to the plate.");
+    //Output of integer
+    NSLog(@"The Pitcher throws the ball at %d mph.", ball);
+    
+    //AND Condition
     if((ball > 65) && (swing > 3))
     {
         NSLog(@"You hit the ball");
+        //Nested for loop
         for(int x=1; x<4; x++)
         {
             NSLog(@"You round %d base.", x);
         }
-    }
+    }//OR condition
     else if ((distance >= 150) || (strike == true))
     {
         NSLog(@"You're OUT!");
@@ -60,6 +67,8 @@
     {
         NSLog(@"The pitch was a ball.");
     }
+    //Output of casted float
+    NSLog(@"The ball is hit and goes %.2f feet.", distance);
     
     return YES;
 }
