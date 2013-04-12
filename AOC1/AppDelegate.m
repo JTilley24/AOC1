@@ -26,15 +26,31 @@
     bool strike = false;
     float swing = 3.3;
     int ball = 95;
+    int innings = 1;
 
     float distance = (float)ball * swing;
     
     NSLog(@"The Pitcher throws the ball at %d mph.", ball);
     NSLog(@"The ball is hit and goes %.2f feet.", distance);
     
+    while(innings<9)
+    {
+        NSLog(@"It is the %d inning.", innings);
+        innings++;
+    }
+    
+    for(int out=0; out<3; out++)
+    {
+        NSLog(@"There is %d outs.", out);
+    }
+    
     if((ball > 65) && (swing > 3))
     {
         NSLog(@"You hit the ball");
+        for(int x=1; x<4; x++)
+        {
+            NSLog(@"You round %d base.", x);
+        }
     }
     else if ((distance >= 150) || (strike == true))
     {
