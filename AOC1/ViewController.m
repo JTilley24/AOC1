@@ -68,6 +68,38 @@
     }
     [self.view addSubview:publish2];
     
+    summary1 =[[UILabel alloc] initWithFrame:CGRectMake(0, 60.0f, 100.0f, 20.0f)];
+    if(summary1 != nil)
+    {
+        summary1.backgroundColor = [UIColor darkGrayColor];
+        summary1.text = @"Summary:";
+        summary1.textAlignment = UITextAlignmentRight;
+        summary1.textColor = [UIColor magentaColor];
+    }
+    [self.view addSubview:summary1];
+    
+    summary2 =[[UILabel alloc] initWithFrame:CGRectMake(0.0f, 80.0f, 320.0f, 120.0f)];
+    if(summary2 != nil)
+    {
+        summary2.backgroundColor = [UIColor purpleColor];
+        summary2.text = @"In the Projects of South Boston, the Curran brothers learn fast and hard about the life of coming up in the ranks of the mob and how it can changes a you.";
+        summary2.textAlignment = UITextAlignmentCenter;
+        summary2.textColor = [UIColor lightGrayColor];
+        summary2.numberOfLines = 8;
+    }
+    [self.view addSubview:summary2];
+
+    list1 =[[UILabel alloc] initWithFrame:CGRectMake(0, 200.0f, 100.0f, 20.0f)];
+    if(list1 != nil)
+    {
+        list1.backgroundColor = [UIColor orangeColor];
+        list1.text = @"List of Items:";
+        list1.textAlignment = UITextAlignmentRight;
+        list1.textColor = [UIColor brownColor];
+    }
+    [self.view addSubview:list1];
+
+    
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 }

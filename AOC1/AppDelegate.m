@@ -26,6 +26,9 @@
     self.viewController = [[[ViewController alloc] initWithNibName:@"ViewController" bundle:nil] autorelease];
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
+    
+    NSArray *listArray =[[NSArray alloc] initWithObjects:@"Boston", @"gangs", @"mob", @"guns", @"drugs", nil];
+    NSLog(@"%@", [listArray description]);
     return YES;
 }
 
