@@ -9,5 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController
-
+{
+    UILabel *title;
+    UILabel *author1;
+    UILabel *author2;
+    UILabel *publish1;
+    UILabel *publish2;
+}
 @end
