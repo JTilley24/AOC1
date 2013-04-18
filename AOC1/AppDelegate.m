@@ -2,17 +2,20 @@
 //  AppDelegate.m
 //  AOC1
 //
-//  Created by Justin Tilley on 4/12/13.
+//  Created by Justin Tilley on 4/18/13.
 //  Copyright (c) 2013 Justin Tilley. All rights reserved.
 //
 
 #import "AppDelegate.h"
+
+#import "ViewController.h"
 
 @implementation AppDelegate
 
 - (void)dealloc
 {
     [_window release];
+    [_viewController release];
     [super dealloc];
 }
 
@@ -20,56 +23,9 @@
 {
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
+    self.viewController = [[[ViewController alloc] initWithNibName:@"ViewController" bundle:nil] autorelease];
+    self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
-    
-    //Variables
-    bool strike = false;
-    float swing = 3.3;
-    int ball = 95;
-    int innings = 1;
-    //Casting
-    float distance = (float)ball * swing;
-    
-    NSLog(@"Its opening day at Fenway Park.");
-    
-    //While Loop
-    while(innings<10)
-    {
-        NSLog(@"It is the %d inning.", innings);
-        innings++;
-    }
-    //For Loop
-    for(int out=0; out<3; out++)
-    {
-        NSLog(@"There is %d outs.", out);
-    }
-    
-    NSLog(@"You step to the plate.");
-    //Output of integer
-    NSLog(@"The Pitcher throws the ball at %d mph.", ball);
-    
-    //AND Condition
-    if((ball > 65) && (swing > 3))
-    {
-        NSLog(@"You hit the ball");
-        //Nested for loop
-        for(int x=1; x<4; x++)
-        {
-            NSLog(@"You round %d base.", x);
-        }
-    }//OR condition
-    else if ((distance >= 150) || (strike == true))
-    {
-        NSLog(@"You're OUT!");
-    }
-    else
-    {
-        NSLog(@"The pitch was a ball.");
-    }
-    //Output of casted float
-    NSLog(@"The ball is hit and goes %.2f feet.", distance);
-    
     return YES;
 }
 
