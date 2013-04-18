@@ -16,6 +16,15 @@
 
 - (void)viewDidLoad
 {
+    self.view.backgroundColor = [UIColor whiteColor];
+    UILabel *title =[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320.0f, 20.0f)];
+    if(title != nil)
+    {
+        title.backgroundColor = [UIColor greenColor];
+        title.text = @"Boyos";
+        title.textAlignment = UITextAlignmentCenter;
+    }
+    [self.view addSubview:title];
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 }
