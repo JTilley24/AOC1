@@ -16,6 +16,7 @@
 
 - (void)viewDidLoad
 {
+    
     self.view.backgroundColor = [UIColor whiteColor];
     
     title =[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320.0f, 20.0f)];
@@ -27,7 +28,7 @@
     }
     [self.view addSubview:title];
     
-    author1 =[[UILabel alloc] initWithFrame:CGRectMake(0, 20.0f, 100.0f, 20.0f)];
+    author1 =[[UILabel alloc] initWithFrame:CGRectMake(0, 25.0f, 100.0f, 20.0f)];
     if(author1 != nil)
     {
         author1.backgroundColor = [UIColor redColor];
@@ -37,7 +38,7 @@
     }
     [self.view addSubview:author1];
     
-    author2 = [[UILabel alloc] initWithFrame:CGRectMake(100.0f, 20.0f, 220.0f, 20.0f)];
+    author2 = [[UILabel alloc] initWithFrame:CGRectMake(100.0f, 25.0f, 220.0f, 20.0f)];
     if(author2 != nil)
     {
         author2.backgroundColor = [UIColor grayColor];
@@ -47,7 +48,7 @@
     }
     [self.view addSubview:author2];
     
-    publish1 =[[UILabel alloc] initWithFrame:CGRectMake(0, 40.0f, 100.0f, 20.0f)];
+    publish1 =[[UILabel alloc] initWithFrame:CGRectMake(0, 50.0f, 100.0f, 20.0f)];
     if(publish1 != nil)
     {
         publish1.backgroundColor = [UIColor yellowColor];
@@ -58,7 +59,7 @@
     [self.view addSubview:publish1];
     
     
-    publish2 =[[UILabel alloc] initWithFrame:CGRectMake(100.0f, 40.0f, 220.0f, 20.0f)];
+    publish2 =[[UILabel alloc] initWithFrame:CGRectMake(100.0f, 50.0f, 220.0f, 20.0f)];
     if(publish2 != nil)
     {
         publish2.backgroundColor = [UIColor blueColor];
@@ -68,17 +69,17 @@
     }
     [self.view addSubview:publish2];
     
-    summary1 =[[UILabel alloc] initWithFrame:CGRectMake(0, 60.0f, 100.0f, 20.0f)];
+    summary1 =[[UILabel alloc] initWithFrame:CGRectMake(0, 75.0f, 100.0f, 20.0f)];
     if(summary1 != nil)
     {
         summary1.backgroundColor = [UIColor darkGrayColor];
         summary1.text = @"Summary:";
-        summary1.textAlignment = UITextAlignmentRight;
+        summary1.textAlignment = UITextAlignmentLeft;
         summary1.textColor = [UIColor magentaColor];
     }
     [self.view addSubview:summary1];
     
-    summary2 =[[UILabel alloc] initWithFrame:CGRectMake(0.0f, 80.0f, 320.0f, 120.0f)];
+    summary2 =[[UILabel alloc] initWithFrame:CGRectMake(0.0f, 100.0f, 320.0f, 120.0f)];
     if(summary2 != nil)
     {
         summary2.backgroundColor = [UIColor purpleColor];
@@ -89,16 +90,41 @@
     }
     [self.view addSubview:summary2];
 
-    list1 =[[UILabel alloc] initWithFrame:CGRectMake(0, 200.0f, 100.0f, 20.0f)];
+    list1 =[[UILabel alloc] initWithFrame:CGRectMake(0, 225.0f, 100.0f, 20.0f)];
     if(list1 != nil)
     {
         list1.backgroundColor = [UIColor orangeColor];
         list1.text = @"List of Items:";
-        list1.textAlignment = UITextAlignmentRight;
+        list1.textAlignment = UITextAlignmentLeft;
         list1.textColor = [UIColor brownColor];
     }
     [self.view addSubview:list1];
 
+    NSArray *listArray =[[NSArray alloc] initWithObjects:@"Boston", @"gangs", @"mob", @"guns", @"drugs", nil];
+    NSMutableString *listItems = [[NSMutableString alloc] init];
+    for(int i=0;i<5;i++)
+    {
+        if(i != 4)
+        {
+            NSString *items = [listArray objectAtIndex:i];
+            [listItems appendString:[[NSString alloc] initWithFormat:@"%@, ", items]];
+        }else
+        {
+            NSString *items = [listArray objectAtIndex:i];
+            [listItems appendString:[[NSString alloc] initWithFormat:@"and %@", items]];
+        }
+    }
+
+    
+    list2 =[[UILabel alloc] initWithFrame:CGRectMake(0.0f, 250.0f, 320.0f, 20.0f)];
+    if(list2 != nil)
+    {
+        list2.backgroundColor = [UIColor cyanColor];
+        list2.text = listItems;
+        list2.textAlignment = UITextAlignmentCenter;
+        list2.textColor = [UIColor darkGrayColor];
+    }
+    [self.view addSubview:list2];
     
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.

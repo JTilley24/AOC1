@@ -27,9 +27,7 @@
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
     
-    NSArray *listArray =[[NSArray alloc] initWithObjects:@"Boston", @"gangs", @"mob", @"guns", @"drugs", nil];
-    NSLog(@"%@", [listArray description]);
-    return YES;
+        return YES;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
