@@ -1,3 +1,5 @@
+//Justin Tilley
+//AOC1 Project 2
 //
 //  ViewController.m
 //  AOC1
@@ -16,9 +18,10 @@
 
 - (void)viewDidLoad
 {
-    
+    //Background Color
     self.view.backgroundColor = [UIColor whiteColor];
     
+    //Title Label
     title =[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320.0f, 20.0f)];
     if(title != nil)
     {
@@ -28,6 +31,7 @@
     }
     [self.view addSubview:title];
     
+    //Author Label
     author1 =[[UILabel alloc] initWithFrame:CGRectMake(0, 25.0f, 100.0f, 20.0f)];
     if(author1 != nil)
     {
@@ -38,6 +42,7 @@
     }
     [self.view addSubview:author1];
     
+    //Author Name
     author2 = [[UILabel alloc] initWithFrame:CGRectMake(100.0f, 25.0f, 220.0f, 20.0f)];
     if(author2 != nil)
     {
@@ -48,6 +53,7 @@
     }
     [self.view addSubview:author2];
     
+    //Publish Label
     publish1 =[[UILabel alloc] initWithFrame:CGRectMake(0, 50.0f, 100.0f, 20.0f)];
     if(publish1 != nil)
     {
@@ -58,7 +64,7 @@
     }
     [self.view addSubview:publish1];
     
-    
+    //Publish Date
     publish2 =[[UILabel alloc] initWithFrame:CGRectMake(100.0f, 50.0f, 220.0f, 20.0f)];
     if(publish2 != nil)
     {
@@ -69,6 +75,7 @@
     }
     [self.view addSubview:publish2];
     
+    //Summary Label
     summary1 =[[UILabel alloc] initWithFrame:CGRectMake(0, 75.0f, 100.0f, 20.0f)];
     if(summary1 != nil)
     {
@@ -79,6 +86,7 @@
     }
     [self.view addSubview:summary1];
     
+    //Summary Text
     summary2 =[[UILabel alloc] initWithFrame:CGRectMake(0.0f, 100.0f, 320.0f, 120.0f)];
     if(summary2 != nil)
     {
@@ -90,6 +98,7 @@
     }
     [self.view addSubview:summary2];
 
+    //List of Items Label
     list1 =[[UILabel alloc] initWithFrame:CGRectMake(0, 225.0f, 100.0f, 20.0f)];
     if(list1 != nil)
     {
@@ -99,8 +108,11 @@
         list1.textColor = [UIColor brownColor];
     }
     [self.view addSubview:list1];
-
+    
+    //List of Items Array
     NSArray *listArray =[[NSArray alloc] initWithObjects:@"Boston", @"gangs", @"mob", @"guns", @"drugs", nil];
+    
+    //List of Items String and Loop
     NSMutableString *listItems = [[NSMutableString alloc] init];
     for(int i=0;i<5;i++)
     {
@@ -115,7 +127,7 @@
         }
     }
 
-    
+    //List of Items Text
     list2 =[[UILabel alloc] initWithFrame:CGRectMake(0.0f, 250.0f, 320.0f, 20.0f)];
     if(list2 != nil)
     {
