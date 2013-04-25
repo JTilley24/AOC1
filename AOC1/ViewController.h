@@ -10,7 +10,7 @@
 
 @interface ViewController : UIViewController
 {
-    
+    NSMutableString *appended3;
 }
 
 - (int)Add:(NSInteger)number1 number2:(NSInteger)number2;

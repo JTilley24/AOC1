@@ -20,6 +20,12 @@
 {
     [self Add:3 number2:4];
     [self Compare:5 compare2:4];
+    [self Append:@"Hello" appended2:@"My name is Justin"];
+    UIAlertView *alertappend = [[UIAlertView alloc] initWithTitle:@"Alert!" message:appended3 delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    if(alertappend != nil)
+    {
+        [alertappend show];
+    }
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 }
@@ -47,5 +53,13 @@
         return NO;
     }
 }
+
+- (void)Append:(NSString*)appended1 appended2:(NSString*)appended2;
+{
+    appended3 = [[NSMutableString alloc] init];
+    [appended3 appendString:[[NSMutableString alloc] initWithFormat:@"%@ %@", appended1, appended2]];
+    NSLog(@"%@", appended3);
+}
+
 
 @end
