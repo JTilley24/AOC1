@@ -10,14 +10,9 @@
 
 @interface ViewController : UIViewController
 {
-    UILabel *title;
-    UILabel *author1;
-    UILabel *author2;
-    UILabel *publish1;
-    UILabel *publish2;
-    UILabel *summary1;
-    UILabel *summary2;
-    UILabel *list1;
-    UILabel *list2;
+    
 }
+
+- (int)Add:(NSInteger)number1 number2:(NSInteger)number2;
+
 @end
