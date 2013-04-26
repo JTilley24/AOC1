@@ -23,6 +23,11 @@
     [self Append:@"Hello" appended2:@"My name is Justin"];
     [self displayAlertWithString:appended3];
     NSLog(@"%d", number3);
+    NSNumber *bundled = [[NSNumber alloc] initWithInt:number3];
+    NSString *stringBundled = [[NSString alloc] initWithFormat:@"The number is %@", bundled];
+    [self displayAlertWithString: stringBundled];
+    
+    
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 }
@@ -41,11 +46,13 @@
 {
     if(compare1 == compare2)
     {
-        NSLog(@"Yes");
+        NSString *comparedString = [[NSString alloc] initWithFormat:@"Yes, the number %d equals %d", compare1, compare2];
+        [self displayAlertWithString:comparedString];
         return YES;
     }else
     {
-        NSLog(@"No");
+        NSString *noCompare = [[NSString alloc] initWithFormat:@"No, the number %d does not equal %d", compare1, compare2];
+        [self displayAlertWithString:noCompare];
         return NO;
     }
 }
