@@ -21,11 +21,8 @@
     [self Add:3 number2:4];
     [self Compare:5 compare2:4];
     [self Append:@"Hello" appended2:@"My name is Justin"];
-    UIAlertView *alertappend = [[UIAlertView alloc] initWithTitle:@"Alert!" message:appended3 delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-    if(alertappend != nil)
-    {
-        [alertappend show];
-    }
+    [self displayAlertWithString:appended3];
+    NSLog(@"%d", number3);
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 }
@@ -37,8 +34,7 @@
 }
 - (int)Add:(NSInteger)number1 number2:(NSInteger)number2;
 {
-    int number3 = number1 + number2;
-    NSLog(@"%d", number3);
+    number3 = number1 + number2;
     return number3;
 }
 - (BOOL)Compare:(NSInteger)compare1 compare2:(NSInteger)compare2;
@@ -61,5 +57,13 @@
     NSLog(@"%@", appended3);
 }
 
+-(void)displayAlertWithString:(NSString*)display;
+{
+    UIAlertView *alertappend = [[UIAlertView alloc] initWithTitle:@"Alert!" message:display delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    if(alertappend != nil)
+    {
+        [alertappend show];
+    }
+}
 
 @end

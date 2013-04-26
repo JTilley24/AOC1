@@ -10,6 +10,7 @@
 
 @interface ViewController : UIViewController
 {
+    int number3;
     NSMutableString *appended3;
 }
 
