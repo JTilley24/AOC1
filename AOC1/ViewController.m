@@ -18,13 +18,18 @@
 
 - (void)viewDidLoad
 {
+    
     [self Add:3 number2:4];
-    [self Compare:5 compare2:4];
+    [self Compare:4 compare2:4];
     [self Append:@"Hello" appended2:@"My name is Justin"];
     [self displayAlertWithString:appended3];
-    NSLog(@"%d", number3);
-    NSNumber *bundled = [[NSNumber alloc] initWithInt:number3];
-    NSString *stringBundled = [[NSString alloc] initWithFormat:@"The number is %@", bundled];
+    
+    //Bundle integer with NSNumber
+    NSNumber *bundledNumber = [[NSNumber alloc] initWithInt:number3];
+    
+    //NSNumber into string
+    NSString *stringBundled = [[NSString alloc] initWithFormat:@"The number is %@", bundledNumber];
+    
     [self displayAlertWithString: stringBundled];
     
     
@@ -37,11 +42,15 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+//Add integer function
 - (int)Add:(NSInteger)number1 number2:(NSInteger)number2;
 {
     number3 = number1 + number2;
     return number3;
 }
+
+//Compare integer function
 - (BOOL)Compare:(NSInteger)compare1 compare2:(NSInteger)compare2;
 {
     if(compare1 == compare2)
@@ -57,19 +66,20 @@
     }
 }
 
+//Append two strings function
 - (void)Append:(NSString*)appended1 appended2:(NSString*)appended2;
 {
     appended3 = [[NSMutableString alloc] init];
     [appended3 appendString:[[NSMutableString alloc] initWithFormat:@"%@ %@", appended1, appended2]];
-    NSLog(@"%@", appended3);
 }
 
--(void)displayAlertWithString:(NSString*)display;
+//Display Alert function
+- (void)displayAlertWithString:(NSString*)displayString;
 {
-    UIAlertView *alertappend = [[UIAlertView alloc] initWithTitle:@"Alert!" message:display delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-    if(alertappend != nil)
+    UIAlertView *alertAppend = [[UIAlertView alloc] initWithTitle:@"Alert!" message:displayString delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    if(alertAppend != nil)
     {
-        [alertappend show];
+        [alertAppend show];
     }
 }
 
