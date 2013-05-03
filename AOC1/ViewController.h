@@ -8,13 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <UITextFieldDelegate>
 {
     UITextField *userText;
     UILabel *notice;
     NSDate *date;
     UILabel *infoText;
-    
 }
 
 

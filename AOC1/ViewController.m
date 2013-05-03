@@ -20,22 +20,22 @@
 {
     self.view.backgroundColor = [UIColor whiteColor];
     
+    //Username Label
     UILabel *userLabel = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 10.0f, 95.f, 30.0f)];
     if(userLabel !=nil)
     {
         userLabel.text = @"Username:";
         [self.view addSubview:userLabel];
     }
-    
-    
-    
+    //Username Textfield
     userText = [[UITextField alloc] initWithFrame:CGRectMake(110.0f, 10.0f, 200.0f, 30.0f)];
     if(userText != nil)
     {
         userText.borderStyle =UITextBorderStyleRoundedRect;
         [self.view addSubview:userText];
+        userText.delegate = self;
     }
-    
+    //Login Button
     UIButton *login =  [UIButton buttonWithType:UIButtonTypeRoundedRect];
     if(login != nil)
     {
@@ -45,7 +45,7 @@
         [login addTarget:self action:@selector(onClick:) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:login];
     }
-    
+    //Login Information Notice
     notice = [[UILabel alloc] initWithFrame:CGRectMake(0, 100.0f, 320.0f, 70.0f)];
     if(notice != nil)
     {
@@ -56,7 +56,7 @@
         notice.backgroundColor = [UIColor lightGrayColor];
         [self.view addSubview:notice];
     }
-    
+    //Show Date Button
     UIButton *showDate = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     if(showDate != nil)
     {
@@ -66,7 +66,7 @@
         [showDate addTarget:self action:@selector(onClick:) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:showDate];
     }
-    
+    //Info Button
     UIButton *infoButton = [UIButton buttonWithType:UIButtonTypeInfoDark];
     if(infoButton != nil)
     {
@@ -75,7 +75,7 @@
         [infoButton addTarget:self action:@selector(onClick:) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:infoButton];
     }
-    
+    //Info Text
     infoText = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 390.0f, 300.0f, 50.0f)];
     if(infoText != nil)
     {
@@ -88,9 +88,10 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 }
-
+//onClick function
 -(void)onClick:(UIButton*)button
 {
+    //Login Button Click
     if(button.tag == 0)
     {
         if(userText.text.length < 1)
@@ -104,6 +105,7 @@
             notice.text = noticeText;
         }
     }
+    //Show Date Button Click
     else if(button.tag == 1)
     {
         date = [NSDate date];
@@ -112,15 +114,13 @@
         {
             [dateFormat setDateStyle:NSDateFormatterFullStyle];
             [dateFormat setTimeStyle:NSDateFormatterFullStyle];
-            
-            
-            
         }
         NSString *dateText = [dateFormat stringFromDate:date];
-        UIAlertView *dateAlert = [[UIAlertView alloc] initWithTitle:@"Date" message: @"" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
+        UIAlertView *dateAlert = [[UIAlertView alloc] initWithTitle:@"Date" message: @"" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         dateAlert.message = dateText;
         [dateAlert show];
     }
+    //Info Button Click
     else if(button.tag == 2)
     {
         infoText.text = @"This application was written by Justin Tilley.";
@@ -132,7 +132,13 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+//Keyboard dismiss
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    
+    return YES;
+}
 
 
 @end
