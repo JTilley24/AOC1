@@ -12,6 +12,7 @@
 {
     UITextField *userText;
     UILabel *notice;
+    NSDate *date;
     
 }
 

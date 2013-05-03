@@ -39,9 +39,10 @@
     UIButton *login =  [UIButton buttonWithType:UIButtonTypeRoundedRect];
     if(login != nil)
     {
-        login.frame = CGRectMake(230.0f, 50.0f, 80.0f, 30.0f);
+        login.frame = CGRectMake(230.0f, 50.0f, 80.0f, 35.0f);
         [login setTitle:@"Login" forState:UIControlStateNormal];
-        [login addTarget:self action:@selector(onClick) forControlEvents:UIControlEventTouchUpInside];
+        login.tag = 0;
+        [login addTarget:self action:@selector(onClick:) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:login];
     }
     
@@ -54,20 +55,54 @@
         [self.view addSubview:notice];
     }
     
+    UIButton *showDate = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    if(showDate != nil)
+    {
+        showDate.frame = CGRectMake(30.0f, 200.0f, 110.0f, 35.0f);
+        [showDate setTitle:@"Show Date" forState:UIControlStateNormal];
+        showDate.tag = 1;
+        [showDate addTarget:self action:@selector(onClick:) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:showDate];
+    }
+    
+    
+    
     
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
--(void)onClick
+-(void)onClick:(UIButton*)button
 {
-    if(userText.text == nil)
+    if(button.tag == 0)
     {
-        notice.text = @"Please Enter Username";
+        if(userText.text.length < 1)
+        {
+            notice.text = @"Please Enter Username";
+        }
+        if(userText.text.length > 1)
+        {
+            NSString *username = [userText text];
+            NSString *noticeText = [[NSString alloc] initWithFormat:@"User: %@ has been logged in.", username];
+            notice.text = noticeText;
+        }
     }
-    if(userText.text > 0)
+    else if(button.tag == 1)
     {
-        notice.text = @"User: has been logged in";
+        date = [NSDate date];
+        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+        if(dateFormat != nil)
+        {
+            [dateFormat setDateStyle:NSDateFormatterFullStyle];
+            [dateFormat setTimeStyle:NSDateFormatterFullStyle];
+            
+            
+            
+        }
+        NSString *dateText = [dateFormat stringFromDate:date];
+        UIAlertView *dateAlert = [[UIAlertView alloc] initWithTitle:@"Date" message: @"" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
+        dateAlert.message = dateText;
+        [dateAlert show];
     }
 }
 
