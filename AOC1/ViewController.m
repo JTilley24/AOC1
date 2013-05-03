@@ -49,9 +49,11 @@
     notice = [[UILabel alloc] initWithFrame:CGRectMake(0, 100.0f, 320.0f, 70.0f)];
     if(notice != nil)
     {
+        notice.text = @"Please Enter Username";
         notice.textAlignment = UITextAlignmentCenter;
+        notice.numberOfLines = 2;
         notice.textColor = [UIColor blueColor];
-        notice.backgroundColor = [UIColor grayColor];
+        notice.backgroundColor = [UIColor lightGrayColor];
         [self.view addSubview:notice];
     }
     
@@ -65,7 +67,22 @@
         [self.view addSubview:showDate];
     }
     
+    UIButton *infoButton = [UIButton buttonWithType:UIButtonTypeInfoDark];
+    if(infoButton != nil)
+    {
+        infoButton.frame = CGRectMake(10.0f, 350.0f, 25.0f, 25.0f);
+        infoButton.tag = 2;
+        [infoButton addTarget:self action:@selector(onClick:) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:infoButton];
+    }
     
+    infoText = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 390.0f, 300.0f, 50.0f)];
+    if(infoText != nil)
+    {
+        infoText.textColor = [UIColor greenColor];
+        infoText.numberOfLines = 2;
+        [self.view addSubview:infoText];
+    }
     
     
     [super viewDidLoad];
@@ -78,7 +95,7 @@
     {
         if(userText.text.length < 1)
         {
-            notice.text = @"Please Enter Username";
+            notice.text = @"Username cannot be empty";
         }
         if(userText.text.length > 1)
         {
@@ -103,6 +120,10 @@
         UIAlertView *dateAlert = [[UIAlertView alloc] initWithTitle:@"Date" message: @"" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
         dateAlert.message = dateText;
         [dateAlert show];
+    }
+    else if(button.tag == 2)
+    {
+        infoText.text = @"This application was written by Justin Tilley.";
     }
 }
 
