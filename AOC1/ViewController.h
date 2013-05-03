@@ -10,6 +10,9 @@
 
 @interface ViewController : UIViewController
 {
+    UITextField *userText;
+    UILabel *notice;
+    
 }
 
 
